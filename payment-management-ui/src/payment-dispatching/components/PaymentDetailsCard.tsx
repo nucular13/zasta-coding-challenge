@@ -1,4 +1,5 @@
 import type {Payment} from "../types";
+import {Card, CardContent, Stack, Typography} from "@mui/material";
 
 type PaymentDetailsCardProps = {
     payment: Payment
@@ -6,12 +7,16 @@ type PaymentDetailsCardProps = {
 
 const PaymentDetailsCard = (props: PaymentDetailsCardProps) => {
     return (
-        <div>
-            <p>Payment ID: {props.payment.id} </p>
-            <p>Reference number: {props.payment.referenceNumber} </p>
-            <p>Name of sender: {props.payment.senderName} </p>
-            <p>Amount: {props.payment.amount} €</p>
-        </div>
+        <Card variant="outlined">
+            <CardContent>
+                <Typography variant="h6">Payment Details</Typography>
+                <Stack spacing={1}>
+                    <Typography><strong>Sender:</strong> {props.payment.senderName}</Typography>
+                    <Typography><strong>Amount:</strong> {props.payment.amount.toFixed(2)} €</Typography>
+                    <Typography><strong>Reference:</strong> {props.payment.referenceNumber}</Typography>
+                </Stack>
+            </CardContent>
+        </Card>
     );
 };
 
