@@ -3,6 +3,7 @@ import type {Invoice, Payment} from "../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
 import {Box, Button, Stack, Typography} from "@mui/material";
 import InvoiceSelector from "./InvoiceSelector.tsx";
+import InvoiceMatchWarnings from "./InvoiceMatchWarnings.tsx";
 import FeeSplitter from "./FeeSplitter.tsx";
 import ConfirmationModal from "./ConfirmationModal.tsx";
 
@@ -44,6 +45,12 @@ const PaymentManagement = (props: PaymentManagementProps) => {
                         selectedInvoice={props.selectedInvoice}
                         onSelect={props.onInvoiceSelect}
                     />
+                    {props.selectedInvoice && (
+                        <InvoiceMatchWarnings
+                            payment={props.selectedPayment}
+                            invoice={props.selectedInvoice}
+                        />
+                    )}
                     {props.selectedInvoice && (
                         <FeeSplitter
                             platformFee={props.platformFee}

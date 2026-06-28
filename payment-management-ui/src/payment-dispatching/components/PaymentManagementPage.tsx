@@ -15,6 +15,12 @@ const mockUnmatchedPayments: Payment[] = [
         senderName: "Apu Nahasapeemapetilon",
         referenceNumber: "INV-2026-0070"
     },
+    {
+        id: 3,
+        amount: 890.50,
+        senderName: "Isolde Baden",
+        referenceNumber: "INV-2026-0022"
+    },
 ];
 
 const mockInvoices: Invoice[] = [
