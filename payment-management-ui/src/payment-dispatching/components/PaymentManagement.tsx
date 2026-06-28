@@ -1,7 +1,7 @@
 import UnmatchedPaymentsList from "./UnmatchedPaymentsList.tsx";
 import type {Invoice, Payment} from "../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
-import {Stack} from "@mui/material";
+import {Box, Stack, Typography} from "@mui/material";
 import InvoiceSelector from "./InvoiceSelector.tsx";
 
 type PaymentManagementProps = {
@@ -15,8 +15,8 @@ type PaymentManagementProps = {
 
 const PaymentManagement = (props: PaymentManagementProps) => {
     return (
-        <>
-            <h1>Payment Management</h1>
+        <Box sx={{ maxWidth: 680, mx: 'auto', py: 4, px: 2 }}>
+            <Typography variant="h4" gutterBottom>Payment Management</Typography>
             <UnmatchedPaymentsList
                 payments={props.payments}
                 selectedPayment={props.selectedPayment}
@@ -32,7 +32,7 @@ const PaymentManagement = (props: PaymentManagementProps) => {
                     />
                 </Stack>
             )}
-        </>
+        </Box>
     );
 };
 
