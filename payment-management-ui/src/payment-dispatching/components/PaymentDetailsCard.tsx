@@ -2,7 +2,7 @@ import type {Payment} from "../types";
 import {Card, CardContent, Stack, Typography} from "@mui/material";
 
 type PaymentDetailsCardProps = {
-    payment: Payment
+    payment: Payment;
 };
 
 const PaymentDetailsCard = (props: PaymentDetailsCardProps) => {

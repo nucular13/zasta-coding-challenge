@@ -3,9 +3,9 @@ import TextField from '@mui/material/TextField'
 import type {Invoice} from '../types'
 
 type InvoiceSelectorProps = {
-    invoices: Invoice[]
-    selectedInvoice: Invoice | null
-    onSelect: (invoice: Invoice | null) => void
+    invoices: Invoice[];
+    selectedInvoice: Invoice | null;
+    onSelect: (invoice: Invoice | null) => void;
 }
 
 const InvoiceSelector = (props: InvoiceSelectorProps) => {

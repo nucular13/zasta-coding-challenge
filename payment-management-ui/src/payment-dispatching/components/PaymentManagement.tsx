@@ -7,22 +7,22 @@ import FeeSplitter from "./FeeSplitter.tsx";
 import ConfirmationModal from "./ConfirmationModal.tsx";
 
 type PaymentManagementProps = {
-    payments: Payment[]
-    invoices: Invoice[]
-    selectedPayment: Payment | null
-    onPaymentSelect: (payment: Payment) => void
-    selectedInvoice: Invoice | null
-    onInvoiceSelect: (invoice: Invoice | null) => void
-    platformFee: number
-    onPlatformFeeChange: (value: number) => void
-    providerFee: number
-    onProviderFeeChange: (value: number) => void
-    logisticsFee: number
-    onLogisticsFeeChange: (value: number) => void
-    remaining: number
-    modalOpen: boolean
-    onModalOpen: () => void
-    onModalClose: () => void
+    payments: Payment[];
+    invoices: Invoice[];
+    selectedPayment: Payment | null;
+    onPaymentSelect: (payment: Payment) => void;
+    selectedInvoice: Invoice | null;
+    onInvoiceSelect: (invoice: Invoice | null) => void;
+    platformFee: number;
+    onPlatformFeeChange: (value: number) => void;
+    providerFee: number;
+    onProviderFeeChange: (value: number) => void;
+    logisticsFee: number;
+    onLogisticsFeeChange: (value: number) => void;
+    remaining: number;
+    modalOpen: boolean;
+    onModalOpen: () => void;
+    onModalClose: () => void;
 };
 
 const PaymentManagement = (props: PaymentManagementProps) => {

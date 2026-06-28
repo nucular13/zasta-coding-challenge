@@ -3,13 +3,13 @@ import FeeInputField from './FeeInputField.tsx'
 import AfterFeeDeductionsResultBox from "./AfterFeeDeductionsResultBox.tsx";
 
 type FeeSplitterProps = {
-    platformFee: number
-    providerFee: number
-    logisticsFee: number
-    remaining: number
-    onPlatformFeeChange: (value: number) => void
-    onProviderFeeChange: (value: number) => void
-    onLogisticsFeeChange: (value: number) => void
+    platformFee: number;
+    providerFee: number;
+    logisticsFee: number;
+    remaining: number;
+    onPlatformFeeChange: (value: number) => void;
+    onProviderFeeChange: (value: number) => void;
+    onLogisticsFeeChange: (value: number) => void;
 };
 
 const FeeSplitter = (props: FeeSplitterProps) => {

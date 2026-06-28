@@ -1,7 +1,7 @@
 import {Box, Typography} from "@mui/material";
 
 type AfterFeeDeductionsResultBoxProps = {
-    remaining: number
+    remaining: number;
 };
 
 const AfterFeeDeductionsResultBox = (props: AfterFeeDeductionsResultBoxProps) => {

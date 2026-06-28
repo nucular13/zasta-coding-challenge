@@ -2,9 +2,9 @@ import {Divider, List, ListItemButton, ListItemText, Paper, Typography} from '@m
 import type {Payment} from '../types'
 
 type UnmatchedPaymentsListProps = {
-    payments: Payment[]
-    selectedPayment: Payment | null
-    onSelect: (payment: Payment) => void
+    payments: Payment[];
+    selectedPayment: Payment | null;
+    onSelect: (payment: Payment) => void;
 };
 
 const UnmatchedPaymentsList = (props: UnmatchedPaymentsListProps) => {

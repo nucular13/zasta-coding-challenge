@@ -2,12 +2,12 @@ import {Divider, Stack, Typography} from "@mui/material";
 import type {Invoice, Payment} from "../types";
 
 type ConfirmationSummaryProps = {
-    payment: Payment,
-    invoice: Invoice,
-    platformFee: number,
-    providerFee: number,
-    logisticsFee: number,
-    remaining: number
+    payment: Payment;
+    invoice: Invoice;
+    platformFee: number;
+    providerFee: number;
+    logisticsFee: number;
+    remaining: number;
 };
 
 const ConfirmationSummary = (props: ConfirmationSummaryProps) => {

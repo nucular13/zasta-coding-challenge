@@ -3,15 +3,15 @@ import type {Invoice, Payment} from '../types'
 import ConfirmationSummary from "./ConfirmationSummary.tsx";
 
 type ConfirmationModalProps = {
-    open: boolean,
-    payment: Payment,
-    invoice: Invoice,
-    platformFee: number,
-    providerFee: number,
-    logisticsFee: number,
-    remaining: number,
-    onClose: () => void,
-    onConfirm: () => void,
+    open: boolean;
+    payment: Payment;
+    invoice: Invoice;
+    platformFee: number;
+    providerFee: number;
+    logisticsFee: number;
+    remaining: number;
+    onClose: () => void;
+    onConfirm: () => void;
 }
 
 const ConfirmationModal = (props: ConfirmationModalProps) => {
