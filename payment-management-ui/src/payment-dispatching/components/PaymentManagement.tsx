@@ -3,6 +3,7 @@ import type {Invoice, Payment} from "../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
 import {Box, Stack, Typography} from "@mui/material";
 import InvoiceSelector from "./InvoiceSelector.tsx";
+import FeeSplitter from "./FeeSplitter.tsx";
 
 type PaymentManagementProps = {
     payments: Payment[]
@@ -11,6 +12,13 @@ type PaymentManagementProps = {
     onPaymentSelect: (payment: Payment) => void
     selectedInvoice: Invoice | null
     onInvoiceSelect: (invoice: Invoice | null) => void
+    platformFee: number
+    onPlatformFeeChange: (value: number) => void
+    providerFee: number
+    onProviderFeeChange: (value: number) => void
+    logisticsFee: number
+    onLogisticsFeeChange: (value: number) => void
+    remaining: number
 };
 
 const PaymentManagement = (props: PaymentManagementProps) => {
@@ -30,6 +38,17 @@ const PaymentManagement = (props: PaymentManagementProps) => {
                         selectedInvoice={props.selectedInvoice}
                         onSelect={props.onInvoiceSelect}
                     />
+                    {props.selectedInvoice && (
+                        <FeeSplitter
+                            platformFee={props.platformFee}
+                            onPlatformFeeChange={props.onPlatformFeeChange}
+                            providerFee={props.providerFee}
+                            onProviderFeeChange={props.onProviderFeeChange}
+                            logisticsFee={props.logisticsFee}
+                            onLogisticsFeeChange={props.onLogisticsFeeChange}
+                            remaining={props.remaining}
+                        />
+                    )}
                 </Stack>
             )}
         </Box>
