@@ -5,7 +5,7 @@ import PaymentManagement from "./PaymentManagement.tsx";
 const mockUnmatchedPayments: Payment[] = [
     {
         id: 1,
-        amount: 100,
+        amount: 1250.00,
         senderName: "Max Müller",
         referenceNumber: "INV-2026-0069"
     },
