@@ -10,7 +10,7 @@ const PaymentDetailsCard = (props: PaymentDetailsCardProps) => {
             <p>Payment ID: {props.payment.id} </p>
             <p>Reference number: {props.payment.referenceNumber} </p>
             <p>Name of sender: {props.payment.senderName} </p>
-            <p>Amount: {props.payment.amount} </p>
+            <p>Amount: {props.payment.amount} €</p>
         </div>
     );
 };
