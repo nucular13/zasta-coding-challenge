@@ -1,9 +1,10 @@
 import UnmatchedPaymentsList from "./UnmatchedPaymentsList.tsx";
 import type {Invoice, Payment} from "../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
-import {Box, Stack, Typography} from "@mui/material";
+import {Box, Button, Stack, Typography} from "@mui/material";
 import InvoiceSelector from "./InvoiceSelector.tsx";
 import FeeSplitter from "./FeeSplitter.tsx";
+import ConfirmationModal from "./ConfirmationModal.tsx";
 
 type PaymentManagementProps = {
     payments: Payment[]
@@ -19,9 +20,14 @@ type PaymentManagementProps = {
     logisticsFee: number
     onLogisticsFeeChange: (value: number) => void
     remaining: number
+    modalOpen: boolean
+    onModalOpen: () => void
+    onModalClose: () => void
 };
 
 const PaymentManagement = (props: PaymentManagementProps) => {
+    const canConfirm = props.selectedInvoice !== null && props.remaining >= 0
+
     return (
         <Box sx={{ maxWidth: 680, mx: 'auto', py: 4, px: 2 }}>
             <Typography variant="h4" gutterBottom>Payment Management</Typography>
@@ -49,7 +55,30 @@ const PaymentManagement = (props: PaymentManagementProps) => {
                             remaining={props.remaining}
                         />
                     )}
+                    {props.selectedInvoice && (
+                        <Button
+                            variant="contained"
+                            size="large"
+                            disabled={!canConfirm}
+                            onClick={props.onModalOpen}
+                        >
+                            Confirm Assignment
+                        </Button>
+                    )}
                 </Stack>
+            )}
+            {props.selectedPayment && props.selectedInvoice && (
+                <ConfirmationModal
+                    open={props.modalOpen}
+                    payment={props.selectedPayment}
+                    invoice={props.selectedInvoice}
+                    platformFee={props.platformFee}
+                    providerFee={props.providerFee}
+                    logisticsFee={props.logisticsFee}
+                    remaining={props.remaining}
+                    onClose={props.onModalClose}
+                    onConfirm={props.onModalClose}
+                />
             )}
         </Box>
     );

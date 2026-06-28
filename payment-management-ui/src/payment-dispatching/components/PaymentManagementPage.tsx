@@ -44,6 +44,7 @@ const PaymentManagementPage = () => {
     const [platformFee, setPlatformFee] = useState<number>(0)
     const [providerFee, setProviderFee] = useState<number>(0)
     const [logisticsFee, setLogisticsFee] = useState<number>(0)
+    const [modalOpen, setModalOpen] = useState<boolean>(false)
 
     const remaining = (selectedPayment?.amount ?? 0) - platformFee - providerFee - logisticsFee
     
@@ -70,6 +71,9 @@ const PaymentManagementPage = () => {
                 logisticsFee={logisticsFee}
                 onLogisticsFeeChange={setLogisticsFee}
                 remaining={remaining}
+                modalOpen={modalOpen}
+                onModalOpen={() => setModalOpen(true)}
+                onModalClose={() => setModalOpen(false)}
             />
         </div>
     )
