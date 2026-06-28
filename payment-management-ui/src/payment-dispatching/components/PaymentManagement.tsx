@@ -19,7 +19,7 @@ const PaymentManagement = (props: PaymentManagementProps) => {
             <h1>Payment Management</h1>
             <UnmatchedPaymentsList
                 payments={props.payments}
-                selectedPayment={null}
+                selectedPayment={props.selectedPayment}
                 onSelect={props.onPaymentSelect}
                 />
             {props.selectedPayment && (
