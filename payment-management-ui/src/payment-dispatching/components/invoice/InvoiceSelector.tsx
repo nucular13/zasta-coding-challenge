@@ -1,5 +1,5 @@
 import {Paper, Typography} from '@mui/material'
-import type {Invoice} from '../types'
+import type {Invoice} from '../../types'
 import InvoiceAutoCompleteSearchbar from "./InvoiceAutoCompleteSearchbar.tsx";
 
 type InvoiceSelectorProps = {

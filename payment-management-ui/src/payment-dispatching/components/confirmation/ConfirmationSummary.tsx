@@ -1,5 +1,5 @@
 import {Divider, Stack, Typography} from "@mui/material";
-import type {Invoice, Payment} from "../types";
+import type {Invoice, Payment} from "../../types";
 
 type ConfirmationSummaryProps = {
     payment: Payment;

@@ -1,5 +1,5 @@
 import {Button, Dialog, DialogActions, DialogContent, DialogTitle} from '@mui/material'
-import type {Invoice, Payment} from '../types'
+import type {Invoice, Payment} from '../../types'
 import ConfirmationSummary from "./ConfirmationSummary.tsx";
 
 type ConfirmationModalProps = {

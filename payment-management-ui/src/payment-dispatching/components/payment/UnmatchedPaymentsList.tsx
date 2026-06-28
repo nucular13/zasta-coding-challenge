@@ -1,5 +1,5 @@
 import {Divider, List, ListItemButton, ListItemText, Paper, Typography} from '@mui/material'
-import type {Payment} from '../types'
+import type {Payment} from '../../types'
 
 type UnmatchedPaymentsListProps = {
     payments: Payment[];

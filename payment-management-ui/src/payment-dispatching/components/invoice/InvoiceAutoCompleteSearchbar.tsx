@@ -1,6 +1,6 @@
 import {TextField} from "@mui/material";
 import Autocomplete from "@mui/material/Autocomplete";
-import type {Invoice} from "../types";
+import type {Invoice} from "../../types";
 
 type InvoiceAutoCompleteSearchbarProps = {
     invoices: Invoice[];

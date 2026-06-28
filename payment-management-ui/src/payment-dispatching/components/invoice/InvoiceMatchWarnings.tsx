@@ -1,5 +1,5 @@
 import {Alert, Stack} from '@mui/material'
-import type {Invoice, Payment} from '../types'
+import type {Invoice, Payment} from '../../types'
 
 type InvoiceMatchWarningsProps = {
     payment: Payment;

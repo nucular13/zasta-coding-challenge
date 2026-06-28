@@ -1,6 +1,6 @@
 import {Card, CardContent, Stack, Typography} from '@mui/material'
 import FeeInputField from './FeeInputField.tsx'
-import AfterFeeDeductionsResultBox from "./AfterFeeDeductionsResultBox.tsx";
+import AfterFeeDeductionsResultBox from "../confirmation/AfterFeeDeductionsResultBox.tsx";
 
 type FeeSplitterProps = {
     platformFee: number;

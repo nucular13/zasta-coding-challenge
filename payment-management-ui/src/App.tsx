@@ -1,4 +1,4 @@
-import PaymentManagementPage from "./payment-dispatching/components/PaymentManagementPage.tsx";
+import PaymentManagementPage from "./payment-dispatching/components/payment/PaymentManagementPage.tsx";
 
 const App = () => {
     return <PaymentManagementPage/>

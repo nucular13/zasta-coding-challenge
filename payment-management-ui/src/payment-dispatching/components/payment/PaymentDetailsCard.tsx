@@ -1,6 +1,6 @@
-import type {Payment} from "../types";
+import type {Payment} from "../../types";
 import {Card, CardContent, Stack, Typography} from "@mui/material";
-import CopyField from "./CopyField.tsx";
+import CopyField from "../util/CopyField.tsx";
 
 type PaymentDetailsCardProps = {
     payment: Payment;

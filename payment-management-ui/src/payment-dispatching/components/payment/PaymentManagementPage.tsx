@@ -1,5 +1,5 @@
 import {useState} from "react";
-import type {Invoice, Payment} from "../types";
+import type {Invoice, Payment} from "../../types";
 import PaymentManagement from "./PaymentManagement.tsx";
 
 const mockUnmatchedPayments: Payment[] = [

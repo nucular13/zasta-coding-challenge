@@ -1,11 +1,11 @@
 import UnmatchedPaymentsList from "./UnmatchedPaymentsList.tsx";
-import type {Invoice, Payment} from "../types";
+import type {Invoice, Payment} from "../../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
 import {Box, Button, Stack, Typography} from "@mui/material";
-import InvoiceSelector from "./InvoiceSelector.tsx";
-import InvoiceMatchWarnings from "./InvoiceMatchWarnings.tsx";
-import FeeSplitter from "./FeeSplitter.tsx";
-import ConfirmationModal from "./ConfirmationModal.tsx";
+import InvoiceSelector from "../invoice/InvoiceSelector.tsx";
+import InvoiceMatchWarnings from "../invoice/InvoiceMatchWarnings.tsx";
+import FeeSplitter from "../fee/FeeSplitter.tsx";
+import ConfirmationModal from "../confirmation/ConfirmationModal.tsx";
 
 type PaymentManagementProps = {
     payments: Payment[];
