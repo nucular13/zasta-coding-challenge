@@ -1,4 +1,6 @@
-import {Box, Card, CardContent, Stack, TextField, Typography} from '@mui/material'
+import {Card, CardContent, Stack, Typography} from '@mui/material'
+import FeeInputField from './FeeInputField.tsx'
+import AfterFeeDeductionsResultBox from "./AfterFeeDeductionsResultBox.tsx";
 
 type FeeSplitterProps = {
     platformFee: number
@@ -11,44 +13,28 @@ type FeeSplitterProps = {
 };
 
 const FeeSplitter = (props: FeeSplitterProps) => {
-    const isOverspent = props.remaining < 0
 
     return (
         <Card variant="outlined">
             <CardContent>
                 <Typography variant="h6" gutterBottom>Fee Splitting</Typography>
                 <Stack spacing={2}>
-                    <TextField
-                        label="Platform Fee (€)"
-                        type="number"
+                    <FeeInputField 
+                        label="Platform Fee (€)" 
                         value={props.platformFee}
-                        onChange={(e) => props.onPlatformFeeChange(Number(e.target.value))}
-                        slotProps={{ htmlInput: { min: 0, step: 0.01 } }}
+                        onChange={props.onPlatformFeeChange} 
                     />
-                    <TextField
-                        label="Payment Provider Fee (€)"
-                        type="number"
+                    <FeeInputField 
+                        label="Payment Provider Fee (€)" 
                         value={props.providerFee}
-                        onChange={(e) => props.onProviderFeeChange(Number(e.target.value))}
-                        slotProps={{ htmlInput: { min: 0, step: 0.01 } }}
+                        onChange={props.onProviderFeeChange} 
                     />
-                    <TextField
-                        label="Logistics Fee (€)"
-                        type="number"
+                    <FeeInputField 
+                        label="Logistics Fee (€)" 
                         value={props.logisticsFee}
-                        onChange={(e) => props.onLogisticsFeeChange(Number(e.target.value))}
-                        slotProps={{ htmlInput: { min: 0, step: 0.01 } }}
+                        onChange={props.onLogisticsFeeChange} 
                     />
-                    <Box sx={{ bgcolor: isOverspent ? 'error.light' : 'success.light', p: 2, borderRadius: 1 }}>
-                        <Typography variant="h6">
-                            The merchant receives: €{props.remaining.toFixed(2)}
-                        </Typography>
-                        {isOverspent && (
-                            <Typography variant="body2" color="error.dark">
-                                Warning: Fees exceed the payment amount
-                            </Typography>
-                        )}
-                    </Box>
+                    <AfterFeeDeductionsResultBox remaining={props.remaining} />
                 </Stack>
             </CardContent>
         </Card>
