@@ -1,6 +1,6 @@
-import Autocomplete from '@mui/material/Autocomplete'
-import TextField from '@mui/material/TextField'
+import {Paper, Typography} from '@mui/material'
 import type {Invoice} from '../types'
+import InvoiceAutoCompleteSearchbar from "./InvoiceAutoCompleteSearchbar.tsx";
 
 type InvoiceSelectorProps = {
     invoices: Invoice[];
@@ -10,15 +10,17 @@ type InvoiceSelectorProps = {
 
 const InvoiceSelector = (props: InvoiceSelectorProps) => {
     return (
-        <Autocomplete
-            options={props.invoices}
-            value={props.selectedInvoice}
-            getOptionLabel={(invoice) => `${invoice.invoiceNumber} | ${invoice.customer.name} | (€${invoice.amount.toFixed(2)})`}
-            onChange={(_event, value) => props.onSelect(value)}
-            renderInput={(params) => (
-                <TextField {...params} label="Search invoice" placeholder="Type at least 1 character..." />
-            )}
-        />
+        <Paper variant="outlined" sx={{ p: 2 }}>
+            <Typography variant="h6" sx={{ pb: 1 }}>Assign Invoice</Typography>
+            <Typography variant="subtitle1" gutterBottom>
+                Search for an invoice to assign this payment to. You can search by invoice number or customer name.
+            </Typography>
+            <InvoiceAutoCompleteSearchbar
+                invoices={props.invoices}
+                selectedInvoice={props.selectedInvoice}
+                onSelect={props.onSelect}
+            />
+        </Paper>
     )
 }
 
