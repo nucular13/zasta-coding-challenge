@@ -39,17 +39,22 @@ const mockInvoices: Invoice[] = [
 ]
 
 const PaymentManagementPage = () => {
-    const [selectedPayment, setSelectedPayment] = useState<Payment | null>(null)
-    
+    const [selectedPayment, setSelectedPayment] = useState<Payment | null>(null);
+    const [selectedInvoice, setSelectedInvoice] = useState<Invoice | null>(null);
+
     const handlePaymentSelect = (payment: Payment) => {
-        setSelectedPayment(payment)
+        setSelectedPayment(payment);
+        setSelectedInvoice(null);
     }
     return (
         <div>
             <PaymentManagement
                 payments={mockUnmatchedPayments}
+                invoices={mockInvoices}
                 selectedPayment={selectedPayment}
                 onPaymentSelect={handlePaymentSelect}
+                selectedInvoice={selectedInvoice}
+                onInvoiceSelect={setSelectedInvoice}
             />
         </div>
     )

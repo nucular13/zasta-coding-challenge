@@ -1,12 +1,16 @@
 import UnmatchedPaymentsList from "./UnmatchedPaymentsList.tsx";
-import type {Payment} from "../types";
+import type {Invoice, Payment} from "../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
 import {Stack} from "@mui/material";
+import InvoiceSelector from "./InvoiceSelector.tsx";
 
 type PaymentManagementProps = {
     payments: Payment[]
+    invoices: Invoice[]
     selectedPayment: Payment | null
     onPaymentSelect: (payment: Payment) => void
+    selectedInvoice: Invoice | null
+    onInvoiceSelect: (invoice: Invoice | null) => void
 };
 
 const PaymentManagement = (props: PaymentManagementProps) => {
@@ -21,6 +25,11 @@ const PaymentManagement = (props: PaymentManagementProps) => {
             {props.selectedPayment && (
                 <Stack spacing={3} sx={{ mt: 3 }}>
                     <PaymentDetailsCard payment={props.selectedPayment} />
+                    <InvoiceSelector
+                        invoices={props.invoices}
+                        selectedInvoice={props.selectedInvoice}
+                        onSelect={props.onInvoiceSelect}
+                    />
                 </Stack>
             )}
         </>
