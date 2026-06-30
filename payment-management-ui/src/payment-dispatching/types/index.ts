@@ -8,6 +8,7 @@ export type Invoice = {
     amount: number;
     invoiceNumber: string;
     customer: Customer;
+    status: 'open' | 'paid';
 }
 
 export type Payment = {
@@ -15,6 +16,7 @@ export type Payment = {
     amount: number;
     senderName: string;
     referenceNumber: string;
+    status: 'unmatched' | 'assigned';
 }
 
 export type FeePreset = {
