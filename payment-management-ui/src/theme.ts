@@ -54,6 +54,13 @@ const theme = createTheme({
                 },
             },
         },
+        MuiToggleButtonGroup: {
+            styleOverrides: {
+                root: {
+                    flexWrap: 'wrap',
+                },
+            },
+        },
         MuiChip: {
             styleOverrides: {
                 root: {
