@@ -1,8 +1,8 @@
 import {Stack, TextField, Typography} from "@mui/material";
 import {useEffect, useState} from "react";
 import type {FeePreset} from "../../types";
-import FeeResultChip from "./FeeResultChip.tsx";
-import FeePresetsBox from "./FeePresetsBox.tsx";
+import FeeResult from "./FeeResult.tsx";
+import FeePresets from "./FeePresets.tsx";
 
 type FeeInputGroupProps = {
     label: string;
@@ -40,24 +40,20 @@ const FeeInputGroup = (props: FeeInputGroupProps) => {
     return (
         <Stack spacing={1}>
             <Typography variant="subtitle2" color="text.secondary">{props.label}</Typography>
-            <Stack direction="row" spacing={2} >
-                <Stack spacing={1}>
-                    <TextField
-                        label="Fee (%)"
-                        type="number"
-                        size="small"
-                        value={feePercentage}
-                        onChange={(e) => handleFeeRateChange(Number(e.target.value))}
-                        slotProps={{ htmlInput: { min: 0, step: 0.1 } }}
-                    />
-                    <FeePresetsBox
-                        selectedPreset={selectedPreset}
-                        presets={props.presets}
-                        handlePresetChange={handlePresetChange}
-                    />
-                </Stack>
-                <FeeResultChip feeValue={computedFee} />
-            </Stack>
+            <TextField
+                label="Fee (%)"
+                type="number"
+                size="small"
+                value={feePercentage}
+                onChange={(e) => handleFeeRateChange(Number(e.target.value))}
+                slotProps={{ htmlInput: { min: 0, step: 0.1 } }}
+            />
+            <FeePresets
+                selectedPreset={selectedPreset}
+                presets={props.presets}
+                handlePresetChange={handlePresetChange}
+            />
+            <FeeResult feeValue={computedFee} />
         </Stack>
     );
 };

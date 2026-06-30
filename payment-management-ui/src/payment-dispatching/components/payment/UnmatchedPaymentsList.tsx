@@ -1,4 +1,4 @@
-import {Divider, List, ListItemButton, ListItemText, Paper, Typography} from '@mui/material'
+import {CardContent, Divider, List, ListItemButton, ListItemText, Paper, Typography} from '@mui/material'
 import type {Payment} from '../../types'
 
 type UnmatchedPaymentsListProps = {
@@ -10,8 +10,10 @@ type UnmatchedPaymentsListProps = {
 const UnmatchedPaymentsList = (props: UnmatchedPaymentsListProps) => {
     return (
         <Paper variant="outlined">
-            <Typography variant="h5" sx={{ p: 2, pb: 1 }}>Unmatched Payments</Typography>
-            <Typography variant="subtitle1" sx={{ p: 2, pb: 1 }}>Select an unmatched payment from the list:</Typography>
+            <CardContent>
+                <Typography variant="h5">Unmatched Payments</Typography>
+                <Typography variant="subtitle1">Select an unmatched payment from the list:</Typography>
+            </CardContent>
             <Divider/>
             <List>
                 {props.payments.map((payment) => (

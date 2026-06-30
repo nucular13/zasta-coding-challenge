@@ -1,4 +1,4 @@
-import {Box, IconButton, Tooltip, Typography} from "@mui/material";
+import {IconButton, Stack, Tooltip, Typography} from "@mui/material";
 import {useState} from "react";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 
@@ -17,14 +17,14 @@ const CopyField = (props: CopyFieldProps) => {
     };
 
     return (
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Stack direction="row" spacing={1}>
             <Typography><strong>{props.label}:</strong> {props.value}</Typography>
             <Tooltip title={copied ? 'Copied!' : 'Copy'}>
                 <IconButton size="small" onClick={handleCopy}>
                     <ContentCopyIcon fontSize="inherit" />
                 </IconButton>
             </Tooltip>
-        </Box>
+        </Stack>
     );
 };
 

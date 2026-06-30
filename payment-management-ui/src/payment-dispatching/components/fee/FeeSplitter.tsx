@@ -1,5 +1,5 @@
-import {Paper, Typography} from '@mui/material';
-import AfterFeeDeductionsResultBox from "../confirmation/AfterFeeDeductionsResultBox.tsx";
+import {CardContent, Paper, Stack, Typography} from '@mui/material';
+import AfterFeeDeductionsResult from "../confirmation/AfterFeeDeductionsResult.tsx";
 import FeeControl from "./FeeControl.tsx";
 
 type FeeSplitterProps = {
@@ -12,18 +12,22 @@ type FeeSplitterProps = {
 
 const FeeSplitter = (props: FeeSplitterProps) => {
     return (
-        <Paper variant="outlined" sx={{ p: 2 }}>
-            <Typography variant="h6" gutterBottom>Fee Splitting</Typography>
-            <Typography variant="subtitle1" gutterBottom>
-                Split the payment amount between the following fees.
-            </Typography>
-            <FeeControl
-                paymentAmount={props.paymentAmount}
-                onPlatformFeeChange={props.onPlatformFeeChange}
-                onProviderFeeChange={props.onProviderFeeChange}
-                onLogisticsFeeChange={props.onLogisticsFeeChange}
-            />
-            <AfterFeeDeductionsResultBox remaining={props.remaining}/>
+        <Paper variant="outlined">
+            <CardContent>
+                <Typography variant="h6" gutterBottom>Fee Splitting</Typography>
+                <Typography variant="subtitle1" gutterBottom>
+                    Split the payment amount between the following fees.
+                </Typography>
+                <Stack spacing={2}>
+                    <FeeControl
+                        paymentAmount={props.paymentAmount}
+                        onPlatformFeeChange={props.onPlatformFeeChange}
+                        onProviderFeeChange={props.onProviderFeeChange}
+                        onLogisticsFeeChange={props.onLogisticsFeeChange}
+                    />
+                    <AfterFeeDeductionsResult remaining={props.remaining}/>
+                </Stack>
+            </CardContent>
         </Paper>
     );
 };

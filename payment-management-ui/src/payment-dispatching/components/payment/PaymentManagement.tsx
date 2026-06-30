@@ -1,7 +1,7 @@
 import UnmatchedPaymentsList from "./UnmatchedPaymentsList.tsx";
 import type {Invoice, Payment} from "../../types";
 import PaymentDetailsCard from "./PaymentDetailsCard.tsx";
-import {Alert, Box, Button, Snackbar, Stack, Typography} from "@mui/material";
+import {Alert, Button, Container, Snackbar, Stack, Typography} from "@mui/material";
 import InvoiceSelector from "../invoice/InvoiceSelector.tsx";
 import InvoiceMatchWarnings from "../invoice/InvoiceMatchWarnings.tsx";
 import FeeSplitter from "../fee/FeeSplitter.tsx";
@@ -28,7 +28,7 @@ type PaymentManagementProps = {
 };
 
 const PaymentManagement = (props: PaymentManagementProps) => {
-    const canConfirm = props.selectedInvoice !== null && props.remaining >= 0
+    const canConfirm = props.selectedInvoice !== null && props.remaining >= 0;
     const [toastOpen, setToastOpen] = useState(false);
 
     const handleConfirm = () => {
@@ -37,48 +37,48 @@ const PaymentManagement = (props: PaymentManagementProps) => {
     };
 
     return (
-        <Box sx={{ maxWidth: 680, mx: 'auto', py: 4, px: 2 }}>
-            <Typography variant="h4" gutterBottom>Payment Management</Typography>
-            <UnmatchedPaymentsList
-                payments={props.payments}
-                selectedPayment={props.selectedPayment}
-                onSelect={props.onPaymentSelect}
+        <Container maxWidth="sm">
+            <Stack spacing={3}>
+                <Typography variant="h4" gutterBottom>Payment Management</Typography>
+                <UnmatchedPaymentsList
+                    payments={props.payments}
+                    selectedPayment={props.selectedPayment}
+                    onSelect={props.onPaymentSelect}
                 />
-            {props.selectedPayment && (
-                <Stack spacing={3} sx={{ mt: 3 }}>
-                    <PaymentDetailsCard payment={props.selectedPayment} />
+                {props.selectedPayment && <PaymentDetailsCard payment={props.selectedPayment} />}
+                {props.selectedPayment && (
                     <InvoiceSelector
                         invoices={props.invoices}
                         selectedInvoice={props.selectedInvoice}
                         onSelect={props.onInvoiceSelect}
                     />
-                    {props.selectedInvoice && (
-                        <InvoiceMatchWarnings
-                            payment={props.selectedPayment}
-                            invoice={props.selectedInvoice}
-                        />
-                    )}
-                    {props.selectedInvoice && (
-                        <FeeSplitter
-                            remaining={props.remaining}
-                            paymentAmount={props.selectedPayment.amount}
-                            onPlatformFeeChange={props.onPlatformFeeChange}
-                            onProviderFeeChange={props.onProviderFeeChange}
-                            onLogisticsFeeChange={props.onLogisticsFeeChange}
-                        />
-                    )}
-                    {props.selectedInvoice && (
-                        <Button
-                            variant="contained"
-                            size="large"
-                            disabled={!canConfirm}
-                            onClick={props.onModalOpen}
-                        >
-                            Confirm Assignment
-                        </Button>
-                    )}
-                </Stack>
-            )}
+                )}
+                {props.selectedPayment && props.selectedInvoice && (
+                    <InvoiceMatchWarnings
+                        payment={props.selectedPayment}
+                        invoice={props.selectedInvoice}
+                    />
+                )}
+                {props.selectedPayment && props.selectedInvoice && (
+                    <FeeSplitter
+                        remaining={props.remaining}
+                        paymentAmount={props.selectedPayment.amount}
+                        onPlatformFeeChange={props.onPlatformFeeChange}
+                        onProviderFeeChange={props.onProviderFeeChange}
+                        onLogisticsFeeChange={props.onLogisticsFeeChange}
+                    />
+                )}
+                {props.selectedPayment && props.selectedInvoice && (
+                    <Button
+                        variant="contained"
+                        size="large"
+                        disabled={!canConfirm}
+                        onClick={props.onModalOpen}
+                    >
+                        Confirm Assignment
+                    </Button>
+                )}
+            </Stack>
             {props.selectedPayment && props.selectedInvoice && (
                 <ConfirmationModal
                     open={props.modalOpen}
@@ -102,7 +102,7 @@ const PaymentManagement = (props: PaymentManagementProps) => {
                     Payment assigned and invoice marked as paid.
                 </Alert>
             </Snackbar>
-        </Box>
+        </Container>
     );
 };
 

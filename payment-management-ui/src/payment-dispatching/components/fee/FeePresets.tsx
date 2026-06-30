@@ -1,14 +1,14 @@
-import {Box, ToggleButton, ToggleButtonGroup, Typography} from "@mui/material";
+import {Stack, ToggleButton, ToggleButtonGroup, Typography} from "@mui/material";
 
-type FeePresetsBoxProps = {
+type FeePresetsProps = {
     selectedPreset: string | null;
     presets: { label: string; percentage: number }[];
     handlePresetChange: (_: React.MouseEvent<HTMLElement>, newPreset: string | null) => void;
 };
 
-const FeePresetsBox = (props: FeePresetsBoxProps) => {
+const FeePresets = (props: FeePresetsProps) => {
     return (
-        <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>
+        <Stack spacing={1}>
             <Typography variant="body2" color="text.secondary">Presets:</Typography>
             <ToggleButtonGroup
                 value={props.selectedPreset}
@@ -22,8 +22,8 @@ const FeePresetsBox = (props: FeePresetsBoxProps) => {
                     </ToggleButton>
                 ))}
             </ToggleButtonGroup>
-        </Box>
+        </Stack>
     );
 };
 
-export default FeePresetsBox;
+export default FeePresets;

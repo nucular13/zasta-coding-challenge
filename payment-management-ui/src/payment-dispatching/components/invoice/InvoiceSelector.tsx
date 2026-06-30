@@ -1,4 +1,4 @@
-import {Paper, Typography} from '@mui/material'
+import {CardContent, Paper, Typography} from '@mui/material'
 import type {Invoice} from '../../types'
 import InvoiceAutoCompleteSearchbar from "./InvoiceAutoCompleteSearchbar.tsx";
 
@@ -10,16 +10,18 @@ type InvoiceSelectorProps = {
 
 const InvoiceSelector = (props: InvoiceSelectorProps) => {
     return (
-        <Paper variant="outlined" sx={{ p: 2 }}>
-            <Typography variant="h6" sx={{ pb: 1 }}>Assign Invoice</Typography>
-            <Typography variant="subtitle1" gutterBottom>
-                Search for an invoice to assign this payment to. You can search by invoice number or customer name.
-            </Typography>
-            <InvoiceAutoCompleteSearchbar
-                invoices={props.invoices}
-                selectedInvoice={props.selectedInvoice}
-                onSelect={props.onSelect}
-            />
+        <Paper variant="outlined">
+            <CardContent>
+                <Typography variant="h6" gutterBottom>Assign Invoice</Typography>
+                <Typography variant="subtitle1" gutterBottom>
+                    Search for an invoice to assign this payment to. You can search by invoice number or customer name.
+                </Typography>
+                <InvoiceAutoCompleteSearchbar
+                    invoices={props.invoices}
+                    selectedInvoice={props.selectedInvoice}
+                    onSelect={props.onSelect}
+                />
+            </CardContent>
         </Paper>
     )
 }
