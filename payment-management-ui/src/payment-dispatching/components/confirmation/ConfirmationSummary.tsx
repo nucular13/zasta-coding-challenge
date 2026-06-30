@@ -23,9 +23,9 @@ const ConfirmationSummary = (props: ConfirmationSummaryProps) => {
             <Typography><strong>Customer:</strong> {props.invoice.customer.name}</Typography>
             <Divider/>
             <Typography variant="subtitle2" color="text.secondary">Fee Splits</Typography>
-            <Typography>Platform Fee: €{props.platformFee.toFixed(2)}</Typography>
-            <Typography>Payment Provider Fee: €{props.providerFee.toFixed(2)}</Typography>
-            <Typography>Logistics Fee: €{props.logisticsFee.toFixed(2)}</Typography>
+            <Typography><strong>Platform Fee:</strong> €{props.platformFee.toFixed(2)}</Typography>
+            <Typography><strong>Payment Provider Fee:</strong> €{props.providerFee.toFixed(2)}</Typography>
+            <Typography><strong>Logistics Fee:</strong> €{props.logisticsFee.toFixed(2)}</Typography>
             <Divider/>
             <Typography variant="h6">Merchant receives: €{props.remaining.toFixed(2)}</Typography>
         </Stack>
