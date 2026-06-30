@@ -53,13 +53,11 @@ const PaymentManagement = (props: PaymentManagementProps) => {
                     )}
                     {props.selectedInvoice && (
                         <FeeSplitter
-                            platformFee={props.platformFee}
-                            onPlatformFeeChange={props.onPlatformFeeChange}
-                            providerFee={props.providerFee}
-                            onProviderFeeChange={props.onProviderFeeChange}
-                            logisticsFee={props.logisticsFee}
-                            onLogisticsFeeChange={props.onLogisticsFeeChange}
                             remaining={props.remaining}
+                            paymentAmount={props.selectedPayment.amount}
+                            onPlatformFeeChange={props.onPlatformFeeChange}
+                            onProviderFeeChange={props.onProviderFeeChange}
+                            onLogisticsFeeChange={props.onLogisticsFeeChange}
                         />
                     )}
                     {props.selectedInvoice && (

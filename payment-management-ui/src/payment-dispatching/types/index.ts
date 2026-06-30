@@ -17,4 +17,7 @@ export type Payment = {
     referenceNumber: string;
 }
 
-
+export type FeePreset = {
+    label: string;
+    percentage: number;
+}
