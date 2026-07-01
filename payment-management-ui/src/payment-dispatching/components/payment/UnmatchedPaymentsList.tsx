@@ -1,4 +1,4 @@
-import {CardContent, Divider, List, ListItemButton, ListItemText, Paper, Typography} from '@mui/material'
+import {CardContent, Chip, Divider, List, ListItemButton, ListItemText, Paper, Typography} from '@mui/material'
 import type {Payment} from '../../types'
 
 type UnmatchedPaymentsListProps = {
@@ -22,11 +22,15 @@ const UnmatchedPaymentsList = (props: UnmatchedPaymentsListProps) => {
                         selected={props.selectedPayment?.id === payment.id}
                         onClick={() => props.onSelect(payment)}
                         divider={props.payments.length > 1}
+                        disabled={payment.status === 'assigned'}
                     >
                         <ListItemText
                             primary={`${payment.senderName} | ${payment.amount.toFixed(2)} €`}
                             secondary={payment.referenceNumber}
                         />
+                        {payment.status === 'assigned' && (
+                            <Chip label="Assigned" size="small" color="success" />
+                        )}
                     </ListItemButton>
                 ))}
             </List>

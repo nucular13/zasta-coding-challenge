@@ -2,9 +2,11 @@ import {useState} from "react";
 import type {Invoice, Payment} from "../../types";
 import PaymentManagement from "./PaymentManagement.tsx";
 import {unmatchedPayments} from "../../types/unmatchedPayments.ts";
-import {invoices} from "../../types/invoices.ts";
+import {invoices as initialInvoices} from "../../types/invoices.ts";
 
 const PaymentManagementPage = () => {
+    const [payments, setPayments] = useState<Payment[]>(unmatchedPayments);
+    const [invoices, setInvoices] = useState<Invoice[]>(initialInvoices);
     const [selectedPayment, setSelectedPayment] = useState<Payment | null>(null);
     const [selectedInvoice, setSelectedInvoice] = useState<Invoice | null>(null);
     const [platformFee, setPlatformFee] = useState<number>(0);
@@ -20,11 +22,25 @@ const PaymentManagementPage = () => {
         setPlatformFee(0);
         setProviderFee(0);
         setLogisticsFee(0);
-    }
+    };
+
+    const handleFinish = () => {
+        if (!selectedPayment || !selectedInvoice) {
+            return;
+        }
+        setPayments(current => current.map(payment => payment.id === selectedPayment.id ? {...payment, status: 'assigned'} : payment));
+        setInvoices(current => current.map(invoice => invoice.id === selectedInvoice.id ? {...invoice, status: 'paid'} : invoice));
+        setSelectedPayment(null);
+        setSelectedInvoice(null);
+        setPlatformFee(0);
+        setProviderFee(0);
+        setLogisticsFee(0);
+    };
+
     return (
         <div>
             <PaymentManagement
-                payments={unmatchedPayments}
+                payments={payments}
                 invoices={invoices}
                 selectedPayment={selectedPayment}
                 onPaymentSelect={handlePaymentSelect}
@@ -40,9 +56,10 @@ const PaymentManagementPage = () => {
                 modalOpen={modalOpen}
                 onModalOpen={() => setModalOpen(true)}
                 onModalClose={() => setModalOpen(false)}
+                onFinish={handleFinish}
             />
         </div>
-    )
+    );
 }
 
 export default PaymentManagementPage;

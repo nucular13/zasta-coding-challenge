@@ -36,6 +36,7 @@ type PaymentManagementProps = {
     modalOpen: boolean;
     onModalOpen: () => void;
     onModalClose: () => void;
+    onFinish: () => void;
 };
 
 const STEP = {
@@ -67,6 +68,7 @@ const PaymentManagement = (props: PaymentManagementProps) => {
     const handleConfirm = () => {
         props.onModalClose();
         setToastOpen(true);
+        props.onFinish();
     };
 
     return (
