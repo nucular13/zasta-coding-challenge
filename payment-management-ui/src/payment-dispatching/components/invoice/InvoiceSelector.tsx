@@ -14,7 +14,7 @@ const InvoiceSelector = (props: InvoiceSelectorProps) => {
             <CardContent>
                 <Typography variant="h6" gutterBottom>Assign Invoice</Typography>
                 <Typography variant="subtitle1" gutterBottom>
-                    Search for an invoice to assign this payment to. You can search by invoice number or customer name.
+                    Search for an invoice to assign this payment to. You can search by invoice number, customer name or amount.
                 </Typography>
                 <InvoiceAutoCompleteSearchbar
                     invoices={props.invoices}
